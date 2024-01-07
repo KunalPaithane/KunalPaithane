@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Landscape</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Sky Blue */
+        }
+
+        .mountain {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 150px;
+            background-color: #808080; /* Gray */
+            border-radius: 0 0 50% 50%;
+            z-index: 1;
+        }
+
+        .mountain:before, .mountain:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background-color: #FFFFFF; /* White */
+            border-radius: 50%;
+        }
+
+        .mountain:after {
+            bottom: 120%;
+            width: 60px;
+            height: 60px;
+        }
+
+        .sun {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #FFD700; /* Gold */
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            z-index: 2;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 50px;
+            background-color: #FFFFFF; /* White */
+            border-radius: 50px;
+            z-index: 2;
+        }
+
+        .cloud:before, .cloud:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #FFFFFF; /* White */
+            border-radius: 50%;
+        }
+
+        .cloud:after {
+            top: 20px;
+            left: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mountain"></div>
+    <div class="sun"></div>
+    <div class="cloud"></div>
+</body>
+</html>
