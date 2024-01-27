@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Bar Chart with Dark Mode</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    body.light-mode {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    body.dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+
+    canvas {
+      max-width: 80%;
+      margin: 20px auto;
+    }
+
+    .toggle-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .toggle-label {
+      margin-right: 10px;
+    }
+
+    .toggle-switch {
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 10px;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    input[type="checkbox"] {
+      visibility: hidden;
+    }
+
+    input[type="checkbox"]:checked + .toggle-switch .toggle-slider {
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <h1>Interactive Bar Chart with Dark Mode</h1>
+  <canvas id="myChart" width="400" height="200"></canvas>
+
+  <div class="toggle-container">
+    <label class="toggle-label">Dark Mode</label>
+    <div class="toggle-switch">
+      <div class="toggle-slider"></div>
+      <input type="checkbox" id="darkModeToggle">
+    </div>
+  </div>
+
+  <script>
+    // Sample data
+    const labels = ['January', 'February', 'March', 'April', 'May'];
+    const data = [10, 20, 15, 25, 18];
+
+    // Create a bar chart
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Sample Data',
+          data: data,
+          backgroundColor: 'rgba(75, 192, 192, 0.5)', // Light blue color for bars
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('change', () => {
+      body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
