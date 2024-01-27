@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Web Application</title>
+  <!-- Set HSTS header to enforce HTTPS for a specified duration -->
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+  <!-- Set Content Security Policy header to restrict sources for content loading -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline';">
+</head>
+<body>
+  <h1>Welcome to a Secure Web Application</h1>
+  <!-- Your application content goes here -->
+</body>
+</html>
+
+//Input Validation:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Web Application with Input Validation</title>
+  <!-- Set HSTS header and Content Security Policy header as shown in the previous example -->
+  <script>
+    function validateForm() {
+      var username = document.forms["myForm"]["username"].value;
+      var password = document.forms["myForm"]["password"].value;
+
+      if (username === "" || password === "") {
+        alert("Both username and password must be filled out");
+        return false;
+      }
+
+      // Add more validation logic as needed
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to a Secure Web Application</h1>
+  <form name="myForm" onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
