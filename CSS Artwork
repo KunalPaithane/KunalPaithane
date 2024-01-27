@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunset Artwork</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .sky {
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+      height: 60%;
+      position: relative;
+    }
+
+    .sun {
+      background: radial-gradient(circle at 80% 20%, #ffdb58, transparent);
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      animation: sunAnimation 8s linear infinite;
+    }
+
+    .mountain {
+      background: #1f2d3d;
+      height: 40%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      clip-path: polygon(0 70%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .reflection {
+      background: rgba(31, 45, 61, 0.5);
+      height: 40%;
+      width: 100%;
+      position: absolute;
+      top: 60%;
+      clip-path: polygon(0 0, 100% 30%, 100% 100%, 0% 100%);
+    }
+
+    @keyframes sunAnimation {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky">
+    <div class="sun"></div>
+  </div>
+  <div class="mountain"></div>
+  <div class="reflection"></div>
+</body>
+</html>
